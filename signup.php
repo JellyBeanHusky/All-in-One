@@ -78,42 +78,42 @@
                     <div class="tab-pane active" id="member" role="tabpanel"><br/></br>
                         <div class="row">
                             <div class="col-lg-12 offset-md-3">
-                                <form   id="contactForm" method="POST" novalidate>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <input class="form-control"  id="musername" type="text" placeholder="Username *" required data-validation-required-message="Please enter your username.">
+                              <form   id="contactForm" method="POST" novalidate>
+                                  <div class="row">
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                                <input class="form-control"  name="musername" id="musername" type="text" placeholder="Username *" required data-validation-required-message="Please enter your username.">
                                                 <p class="help-block text-danger"></p>
                                             </div>
                                             <div class="form-group">
-                                                <input class="form-control" id="mpassword" type="password" placeholder="Password *" required data-validation-required-message="Please enter your password.">
+                                                <input class="form-control" name="mpassword" id="mpassword" type="password" placeholder="Password *" required data-validation-required-message="Please enter your password.">
                                                 <p class="help-block text-danger"></p>
                                             </div>
                                             <div class="form-group">
-                                                <input class="form-control" id="mfullname" type="text" placeholder="Full Name *" required data-validation-required-message="Please enter your full name.">
+                                                <input class="form-control" name="mfullname" id="mfullname" type="text" placeholder="Full Name *" required data-validation-required-message="Please enter your full name.">
                                                 <p class="help-block text-danger"></p>
                                             </div>
                                             <div class="form-group">
-                                                <input class="form-control" id="memail" type="email" placeholder="Email *" required data-validation-required-message="Please enter your email.">
+                                                <input class="form-control" name="memail" id="memail" type="email" placeholder="Email *" required data-validation-required-message="Please enter your email.">
                                                 <p class="help-block text-danger"></p>
                                             </div>
 											<div class="form-group">
                                                 <label for="level" style="color:black;">ID Type</label>
-                                                <select class="form-control" id="level">
-                                                    <option value="1">NRIC</option>
-                                                    <option value="2">Passport</option>
+                                                <select class="form-control" name="type" id="type">
+                                                    <option value="NRIC">NRIC</option>
+                                                    <option value="Passport">Passport</option>
                                                 </select>
                                             </div>
 											<div class="form-group">
-                                                <input class="form-control" id="midno" type="text" placeholder="ID NO *" required data-validation-required-message="Please enter your ID no.">
+                                                <input class="form-control" name="midno" id="midno"  type="text" placeholder="ID NO *" required data-validation-required-message="Please enter your ID no.">
                                                 <p class="help-block text-danger"></p>
                                             </div>
 											<div class="form-group">
-                                                <input class="form-control" id="mmobileNo" type="text" placeholder="Mobile No*" required data-validation-required-message="Please enter your Mobile no.">
+                                                <input class="form-control" name="mmobileNo" id="mmobileNo" type="text" placeholder="Mobile No*" required data-validation-required-message="Please enter your Mobile no.">
                                                 <p class="help-block text-danger"></p>
                                             </div>
 											<div class="form-group">
-                                                <input class="form-control" id="mbirth" type="text" placeholder="Date of Birth *" required data-validation-required-message="Please enter your date of birth.">
+                                                <input class="form-control" name="mbirth" id="mbirth" type="text" placeholder="Date of Birth *" required data-validation-required-message="Please enter your date of birth.">
                                                 <p class="help-block text-danger"></p>
                                             </div>
 
