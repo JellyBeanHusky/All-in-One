@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <span class="copyright">Copyright &copy; Your Website 2019</span>
+                <span class="copyright">Copyright &copy; Your Website 2017</span>
             </div>
             <div class="col-md-4">
                 <ul class="list-inline social-buttons">
@@ -62,7 +62,8 @@
 <script src="js/agency.min.js"></script>
 
 
-
+<!-- for web site javascript functions  !-->
+<script type="text/javascript" src="js/helpfit.js"></script>
 
 </body>
 
