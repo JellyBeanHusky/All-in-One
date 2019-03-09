@@ -5,7 +5,7 @@ header('location:signup.php');
 
 $con = mysqli_connect('localhost','root','');
 
-mysqli_select_db($con, 'applicant');
+mysqli_select_db($con, 'allinone');
 
 
 
@@ -17,8 +17,9 @@ $type = $_POST['type'];
 $idno= $_POST['midno'];
 $mobile = $_POST['mmobileNo'];
 $dbirth = $_POST['mbirth'];
+$usertype=$_POST['usertype'];
 
-$s = "select *from applicant where name='$name'";
+$s = "select *from users where name='$name'";
 
 $result = mysqli_query($con, $s);
 
@@ -28,8 +29,8 @@ if($num == 1){
 	echo" username already taken";
 }else{
 	
-	$reg= "insert into users(username, password, fullname, email, type, idno, mobileNo, birth) 
-	values('$name', '$pass', '$fname', '$mail', '$type', '$idno', '$mobile', '$dbirth' )";
+	$reg= "insert into users(username, password, fullname, email, type, idno, mobileNo, birth, usertype) 
+	values('$name', '$pass', '$fname', '$mail', '$type', '$idno', '$mobile', '$dbirth', '$usertype' )";
 	mysqli_query($con, $reg);
 	echo" Registeration Successful";
 }
