@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -38,10 +42,10 @@
                         <!-- if member show this !-->
 
                             <li class="nav-item">
-                                <a class="nav-link js-scroll-trigger" href="">Add a programme</a>
+                                <a class="nav-link js-scroll-trigger" href="">Apply a Programme</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link js-scroll-trigger" href="#viewHistoryMember">review Application</a>
+                                <a class="nav-link js-scroll-trigger" href="#viewHistoryMember">Edit Application</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -229,4 +233,3 @@
         </body>
 
         </html>
-		

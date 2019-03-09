@@ -76,7 +76,7 @@
                     <div class="tab-pane active" id="member" role="tabpanel"><br/></br>
                         <div class="row">
                             <div class="col-lg-12 offset-md-3">
-                                <form   action="registeration.php" id="contactForm" method="POST" novalidate>
+                                <form   action="uniAdminDb.php" id="contactForm" method="POST" novalidate>
                                     <div class="row">
                                         <div class="col-md-6">
 											<div class="form-group">
