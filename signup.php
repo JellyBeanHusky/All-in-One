@@ -31,7 +31,7 @@
       //-->
         <nav class="navbar new navbar-expand-lg navbar-dark fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="index.php"><img src="img/logo.png" alt="" width="175"></a>
+                <a class="navbar-brand js-scroll-trigger" href="index.php"><img src="img/logo2 copy.png" alt="" width="175"></a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fa fa-bars"></i>
@@ -42,7 +42,7 @@
                             <a class="nav-link js-scroll-trigger" href="index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="login.html">Login</a>
+                            <a class="nav-link js-scroll-trigger" href="#page-top">Sign Up</a>
                         </li>
                     </ul>
                 </div>
@@ -78,10 +78,10 @@
                     <div class="tab-pane active" id="member" role="tabpanel"><br/></br>
                         <div class="row">
                             <div class="col-lg-12 offset-md-3">
-                              <form   id="contactForm" method="POST" novalidate>
-                                  <div class="row">
-                                      <div class="col-md-6">
-                                          <div class="form-group">
+                                <form   action="registeration.php" id="contactForm" method="POST" novalidate>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
                                                 <input class="form-control"  name="musername" id="musername" type="text" placeholder="Username *" required data-validation-required-message="Please enter your username.">
                                                 <p class="help-block text-danger"></p>
                                             </div>
@@ -116,13 +116,20 @@
                                                 <input class="form-control" name="mbirth" id="mbirth" type="text" placeholder="Date of Birth *" required data-validation-required-message="Please enter your date of birth.">
                                                 <p class="help-block text-danger"></p>
                                             </div>
+											<div class="form-group">
+                                                <label for="level" style="color:black;">AS</label>
+                                                <select class="form-control" name="usertype" id="usertype">
+                                                    <option value="applicant">applicant</option>
+                                                    
+                                                </select>
+                                            </div>
 
                                             <div class="clearfix"></div>
                                             <div class="col-lg-12 text-center">
                                                 <br/>
                                                 <div id="success"></div>
                                                 <button id="resetButton" class="btn btn-primary btn-xl text-uppercase" type="reset">Reset</button>
-                                                <button   class="btn btn-primary btn-xl text-uppercase" onclick="formSubmitm(1);">Register</button>
+                                               <button   type="submit" class="btn btn-primary btn-xl text-uppercase" >Register</button>
                                             </div>
                                         </div>
                                     </div>
@@ -186,23 +193,9 @@
                 $('#tdatable').DataTable();
 
             });
-        </script>
-        <!-- Bootstrap core JavaScript -->
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        
 
-        <!-- Plugin JavaScript -->
-        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-        <!-- Contact form JavaScript -->
-        <script src="js/jqBootstrapValidation.js"></script>
-        <script src="js/contact_me.js"></script>
-
-        <!-- Custom scripts for this template -->
-        <script src="js/agency.min.js"></script>
-
-
-        <!-- for web site javascript functions  !-->
-        <script type="text/javascript" src="js/helpfit.js"></script>
+       
 
         </body>
 
