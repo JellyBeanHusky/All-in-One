@@ -18,7 +18,7 @@ $num =mysqli_num_rows($result);
 
 if($num == 1){
 	
-	header('location: userHome.php');
+	header('location: sasAdminHome.php');
 }else{
 	header('location: login.php');
 }
