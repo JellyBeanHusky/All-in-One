@@ -10,7 +10,7 @@ mysqli_select_db($con, 'allinone');
 $name= $_POST['user'];
 $pass= $_POST['pwd'];
 
-$s ="select * from applicant where username='$name' && password='$pass'";
+$s ="select * from users where username='$name' && password='$pass'";
 
 $result = mysqli_query($con,$s);
 
