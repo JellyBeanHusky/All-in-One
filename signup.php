@@ -113,7 +113,7 @@
                                                 <p class="help-block text-danger"></p>
                                             </div>
 											<div class="form-group">
-                                                <input class="form-control" name="mbirth" id="mbirth" type="text" placeholder="Date of Birth *" required data-validation-required-message="Please enter your date of birth.">
+                                                <input class="form-control" name="mbirth" id="mbirth" type="date" placeholder="Date of Birth *" required data-validation-required-message="Please enter your date of birth.">
                                                 <p class="help-block text-danger"></p>
                                             </div>
 											<div class="form-group">
