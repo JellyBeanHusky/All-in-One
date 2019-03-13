@@ -24,11 +24,11 @@ $num =mysqli_num_rows($result);
 if($num == 1){
 	echo" qualification already exist";
 }else{
-	
-	$reg= "insert into qualification(qualificationName, maximumValue, minimumValue, qualifications, description) 
+
+	$reg= "insert into qualification(qualificationName, maximumValue, minimumValue, qualifications, description)
 	values('$qName', '$maxV', '$minV', '$q', '$desc')";
 	mysqli_query($con, $reg);
-	echo" Registeration Successful";
+	echo" Added Successfully";
 }
 
 ?>
