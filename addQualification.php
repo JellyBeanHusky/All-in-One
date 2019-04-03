@@ -41,7 +41,7 @@
                                 <a class="nav-link js-scroll-trigger" href="userHome.html">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link js-scroll-trigger" href="#viewHistoryMember">Register University</a>
+                                <a class="nav-link js-scroll-trigger" href="sasAdminHome.php">Register University</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link js-scroll-trigger" href="#viewHistoryMember">Logout</a>
@@ -66,27 +66,27 @@
                     <div class="tab-pane active" role="tabpanel"><br/>
                         <div class="row">
                             <div class="col-lg-12 offset-md-3">
-                                <form  action="qualification.php"  id="contactForm" method="POST" >
+                                <form  action="qualification.php"  id="contactForm" method="POST"  >
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div>
-                                                <input class="form-control" id="qualificationName" name="qualificationName" type="text"  value="" placeholder="Qualification Name *" >
+                                                <input class="form-control" id="qualificationName" name="qualificationName" type="text"  value="" placeholder="Qualification Name *" required data-validation-required-message="Please enter the qualificationName.">
                                                 <p class="text-danger" style="color: red;" ></p>
                                             </div>
                                             <div>
-                                              <input class="form-control" id="maxValue" name="maxValue" type="number"  value="" placeholder="Maximum Value *" >
+                                              <input class="form-control" id="maxValue" name="maxValue" type="number"  value="" placeholder="Maximum Score *" required data-validation-required-message="Please enter the Maximum Score.">
                                               <p class="text-danger" style="color: red;"></p>
                                             </div>
                                             <div>
-                                              <input class="form-control" id="minValue" name="minValue" type="number"  value="" placeholder="Minimum Value *" >
+                                              <input class="form-control" id="minValue" name="minValue" type="number"  value="" placeholder="Minimum Score *" required data-validation-required-message="Please enter the Minimum Score." >
                                               <p class="text-danger" style="color: red;"></p>
                                             </div>
                                             <div>
-                                              <input class="form-control" id="qualifications" name="qualifications" type="text"  value="" placeholder="Qualifications *" >
+                                              <input class="form-control" id="qualifications" name="qualifications" type="text"  value="" placeholder="Possible grades *" required data-validation-required-message="Please enter the Qualifications.">
                                               <p class="text-danger" style="color: red;"></p>
                                             </div>
                                             <div>
-                                              <input class="form-control" id="description" name="description" type="text"  value="" placeholder="Description *" >
+                                              <input class="form-control" id="description" name="description" type="text"  value="" placeholder="Description *"required data-validation-required-message="Please enter the Description." >
                                               <p class="text-danger" style="color: red;"></p>
                                             </div>
 
