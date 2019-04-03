@@ -41,10 +41,13 @@
                         <!-- if member show this !-->
 
                             <li class="nav-item">
-                                <a class="nav-link js-scroll-trigger" href="">Add Qualification</a>
+                                <a class="nav-link js-scroll-trigger" href="addQualification.php">Add Qualification</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link js-scroll-trigger" href="#viewHistoryMember">Register University</a>
+                                <a class="nav-link js-scroll-trigger" href="registeruniadmin.php">Register UniversityAdmin</a>
+                            </li>
+							<li class="nav-item">
+                                <a class="nav-link js-scroll-trigger" href="registeruni.php">Register University</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link js-scroll-trigger" href="#viewHistoryMember">Logout</a>
@@ -62,7 +65,7 @@
                     <div class="col-md-12">
                         <div class="alert alert-success alert-dismissable">
                             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                            Hi <strong></strong> Welcome back to ALL in ONE!
+                            Hi, Admin <strong></strong> Welcome back to ALL in ONE!
                         </div>
                     </div>
                 </div>
@@ -90,6 +93,7 @@
                         				var ctx = $("#mycanvas").get(0).getContext("2d");
 
                         				//pie chart data
+                        				//sum of values = 360
                         				var data = [
                         					{
                         						value: 100,
@@ -109,12 +113,14 @@
                         						highlight: "#6ece2d",
                         						label: "Communication"
                         					},
+
                                   {
                         						value: 70,
                         						color: "yellow",
                         						highlight: "#dbc900",
                         						label: "Information Technology"
                         					}
+
                         				];
 
                         				//draw
