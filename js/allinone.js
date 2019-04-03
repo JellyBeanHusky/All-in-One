@@ -195,6 +195,42 @@ function loadModelReviewMember(sessionid) {
     });
     event.preventDefault();
 }
+
+//accept trainer set date through model
+function addQualification(id) {
+    var uqualifications = $("#uqualifications").val();
+    var dataString = 'sessionid=' + id  + '&uqualifications=' + uqualifications;
+    $.ajax({
+        type: "POST",
+        url: "addQualificationModel.php",
+        data: dataString,
+        success: function (response) {
+            //change the model after click
+            alert("Data Updated Successfully!");
+            location.reload();
+        }
+
+    });
+    event.preventDefault();
+}
+
+// update trainer submited data
+function loadModelRegisterProgramme(sessionid) {
+    var dataString = 'sessionid=' + sessionid;
+    $.ajax({
+        type: "POST",
+        url: "loadModelRegisterProgramme.php",
+        data: dataString,
+        success: function (response) {
+            //change the model after click
+            $("#content").html(response);//
+        }
+
+    });
+    event.preventDefault();
+
+}
+
 //record user Review to Database
 function recordReview(uniqueid, sessionID) {
     var comment = $("#rmessage").val();
