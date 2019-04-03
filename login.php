@@ -69,7 +69,7 @@
                 <?php endif; ?>
                 <div class="row">
                     <div class="col-lg-12 offset-md-3">
-                        <form id="contactForm" method="POST" action="authenticate.php" name="sentMessage" novalidate>
+                        <form id="contactForm" method="POST" action="testlogin.php" name="sentMessage" novalidate>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -82,7 +82,7 @@
                                         
                                     </div>
 									<div class="form-group">
-                                                <label for="level" style="color:black;">AS</label>
+                                                <label for="level"  style="color:black;">AS</label>
                                                 <select class="form-control" name="usertype" id="usertype">
                                                     <option value="applicant">applicant</option>
 													<option value="uniAdmin">uniAdmin</option>
@@ -95,7 +95,7 @@
                                     <div class="col-lg-12 text-center">
                                         <br/>
                                         <div id="success"></div>
-                                        <button  class="btn btn-primary btn-xl text-uppercase" type="submit">Login</button>
+                                        <button  class="btn btn-primary btn-xl text-uppercase" name="submit" type="submit">Login</button>
                                     </div>
                                 </div>
                             </div>
