@@ -1,11 +1,4 @@
-<?php
-require_once("inc/dbcall.php");
-$db = new Db();
-//if already logged in redirect to home
-if (isset($_SESSION['name'])) {
-    $db->redirect('home.php');
-}
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,18 +59,7 @@ if (isset($_SESSION['name'])) {
                         <h2 class="section-heading text-uppercase">Login</h2><br/>
                     </div>
                 </div>
-                <?php
-                if (isset($_POST['login'])) {
-                    if ($db->authenticate($_POST['uname'], $_POST['pwd'])) {
-                        $db->redirect('home.php');
-                    } else {
-                        echo "<div class='row alert alert-success' >
-                    <div class='col-lg-12'>"
-                        . $_SESSION['msg'] .
-                        "</div></div>";
-                    }
-                }
-                ?>
+                
                 <!-- if session has a msg  change later to signgel msg!-->
                 <?php if (isset($_SESSION['logoutmsg'])): ?>
                     <div class="alert alert-success alert-dismissable">
@@ -87,23 +69,33 @@ if (isset($_SESSION['name'])) {
                 <?php endif; ?>
                 <div class="row">
                     <div class="col-lg-12 offset-md-3">
-                        <form id="contactForm" method="POST" action="" name="sentMessage" novalidate>
+                        <form id="contactForm" method="POST" action="authenticate.php" name="sentMessage" novalidate>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input class="form-control" name="uname" type="text" placeholder="Username *" required data-validation-required-message="Please enter your username.">
+                                        <input class="form-control" name="user" type="text" placeholder="Username *" required data-validation-required-message="Please enter your username.">
                                         <p class="help-block text-danger"></p>
                                     </div>
                                     <div class="form-group">
                                         <input class="form-control" name="pwd" type="password" placeholder="Password *" required data-validation-required-message="Please enter your password.">
                                         <p class="help-block text-danger"></p>
-                                        <a href="signup.php" style="float:right;color: #b20000;">New user? Click here to sign up.</a><br>
+                                        
                                     </div>
+									<div class="form-group">
+                                                <label for="level"  style="color:black;">AS</label>
+                                                <select class="form-control" name="usertype" id="usertype">
+                                                    <option value="applicant">applicant</option>
+													<option value="uniAdmin">uniAdmin</option>
+													<option value="Admin">Admin</option>
+                                                    
+                                                </select>
+												<a href="signup.php" style="float:right;color: #b20000;">New user? Click here to sign up.</a><br>
+                                            </div>
                                     <div class="clearfix"></div>
                                     <div class="col-lg-12 text-center">
                                         <br/>
                                         <div id="success"></div>
-                                        <button name="login"  class="btn btn-primary btn-xl text-uppercase" type="submit">Login</button>
+                                        <button  class="btn btn-primary btn-xl text-uppercase" name="submit" type="submit">Login</button>
                                     </div>
                                 </div>
                             </div>
@@ -114,5 +106,51 @@ if (isset($_SESSION['name'])) {
             </div>
         </section>
 
-        <?php
-        require_once 'template/welfooter.php';
+       <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <span class="copyright">Copyright &copy; HELPFIT 2017</span>
+          </div>
+          <div class="col-md-4">
+            <ul class="list-inline social-buttons">
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-facebook"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-linkedin"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <ul class="list-inline quicklinks">
+              <li class="list-inline-item">
+                <a href="#">Privacy Policy</a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">Terms of Use</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    
+  </body>
+
+</html>
+
+
+
+
+
