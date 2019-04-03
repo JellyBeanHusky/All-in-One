@@ -1,3 +1,19 @@
+<?php
+require_once 'inc/dbcall.php';
+$db = new Db();
+//if not set
+if (!isset($_SESSION['name'])) {
+    $db->redirect('');
+}
+//signout
+if (isset($_GET['logout'])) {
+    unset($_SESSION["name"]);
+    unset($_SESSION["usertype"]);
+    $_SESSION["logoutmsg"] = "Succefully signed out";
+    $db->redirect('login.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -6,7 +22,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>ALL in ONE System</title>
+        <title>All in ONE System</title>
 
         <!-- Bootstrap core CSS -->
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -20,7 +36,7 @@
 
         <!-- Custom styles for this template -->
         <link href="css/agency.min.css" rel="stylesheet">
-
+        <link rel="stylesheet" type="text/css" href="css/datable.css">
     </head>
     <body id="page-top">
         <!-- Navigation
@@ -34,61 +50,96 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="">Home</a>
+                        </li>
 
-                        <!-- if member show this !-->
-
-                            <li class="nav-item">
-                                <a class="nav-link js-scroll-trigger" href="userHome.html">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link js-scroll-trigger" href="sasAdminHome.php">Register University</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link js-scroll-trigger" href="#viewHistoryMember">Logout</a>
-                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="#viewHistoryMember">Register University</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="#viewHistoryMember">Edit Qualification</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Profile
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="navbarResponsive">
+                                <a class="dropdown-item js-scroll-trigger" href="#"></a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item js-scroll-trigger" href="">Update Info</a>
+                                <a class="dropdown-item js-scroll-trigger" href="welcomePage.html">Logout</a>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
 
+        <!-- Contact -->
         <section id="signup">
             <br>
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <h2 class="section-heading text-uppercase">Add New Qualification</h2><br/>
+                        <h2 class="section-heading text-uppercase">Add a Programme</h2><br/>
                     </div>
                 </div>
+                <?php
+                //array(6) { ["title"]=> string(0) "" ["date"]=> string(0) "" ["time"]=> string(0) "" ["fee"]=> string(0) "" ["ctype"]=> string(1) "2" ["record"]=> string(0) "" }
+                if (isset($_POST['record'])) {
+                    if (empty($_POST['title']) || $_POST['title'] == "" || empty($_POST['max']) || empty($_POST['min']) || empty($_POST['qualification'])) {
+                        echo '<div class="alert alert-danger">
+                        <strong>Warning!</strong> Please fill all the fields!
+                    </div>';
+                    } else {
 
+                            $sql = "INSERT INTO `qualification1` (`title`, `max`, `min`,`qualification`,`createdby`)
+                                            VALUES ('{$_POST['title']}', '{$_POST['max']}', '{$_POST['min']}', '{$_POST['qualification']}',21)";
+                        }
 
+                        if (($db->query($sql))) {
+                            echo '<div class="alert alert-success">
+                        <strong>Success!</strong> Data has been saved to the database!
+                    </div>';
+                        }
+                    }
+
+                ?>
                 <!-- Tab panes -->
                 <div class="tab-content">
-                    <div class="tab-pane active" role="tabpanel"><br/>
+                    <div class="tab-pane active" id="member" role="tabpanel"><br/></br>
                         <div class="row">
                             <div class="col-lg-12 offset-md-3">
-                                <form  action="qualification.php"  id="contactForm" method="POST"  >
+                                <form  name="recordt" id="member" method="POST" action="#" novalidate>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div>
-                                                <input class="form-control" id="qualificationName" name="qualificationName" type="text"  value="" placeholder="Qualification Name *" required data-validation-required-message="Please enter the qualificationName.">
+                                            <div class="form-group">
+                                                <input class="form-control" id="title" name="title" type="text"    value="" placeholder="Qualification Name *" required >
                                                 <p class="text-danger" style="color: red;" ></p>
                                             </div>
-                                            <div>
-                                              <input class="form-control" id="maxValue" name="maxValue" type="number"  value="" placeholder="Maximum Score *" required data-validation-required-message="Please enter the Maximum Score.">
-                                              <p class="text-danger" style="color: red;"></p>
+                                            <div class="form-group">
+                                                <input class="form-control" id="max" name="max" type="number" placeholder="Maximum Value *"    required value="">
+                                                <p class="help-block text-danger" ></p>
                                             </div>
-                                            <div>
-                                              <input class="form-control" id="minValue" name="minValue" type="number"  value="" placeholder="Minimum Score *" required data-validation-required-message="Please enter the Minimum Score." >
-                                              <p class="text-danger" style="color: red;"></p>
+
+                                            <div class="form-group">
+                                                <input class="form-control" id="min" name="min" type="number" placeholder="Minimum Value *"    required value="">
+                                                <p class="help-block text-danger" ></p>
                                             </div>
-                                            <div>
-                                              <input class="form-control" id="qualifications" name="qualifications" type="text"  value="" placeholder="Possible grades *" required data-validation-required-message="Please enter the Qualifications.">
-                                              <p class="text-danger" style="color: red;"></p>
+
+                                            <div class="form-group">
+                                                <input class="form-control" id="qualification" name="qualification" type="text" placeholder="Qualifications *"    required value="">
+                                                <p class="help-block text-danger" ></p>
                                             </div>
-                                            <div>
-                                              <input class="form-control" id="description" name="description" type="text"  value="" placeholder="Description *"required data-validation-required-message="Please enter the Description." >
-                                              <p class="text-danger" style="color: red;"></p>
-                                            </div>
+
+
+
+
+
+
+                                            <!--- display only whne the user click the group button !-->
+
 
                                             <div class="clearfix"></div>
                                             <div class="col-lg-12 text-center">
@@ -151,12 +202,30 @@
 
         <script type="text/javascript" charset="utf8" src="js/jquery.js"></script>
         <script type="text/javascript" charset="utf8" src="js/datable.js" ></script>
+        <script>
+            $(document).ready(function () {
+                // load member datable
+                $('#mdatable').DataTable();
+                $('#tdatable').DataTable();
 
+            });
+        </script>
         <!-- Bootstrap core JavaScript -->
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+        <!-- Plugin JavaScript -->
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+        <!-- Contact form JavaScript -->
+        <script src="js/jqBootstrapValidation.js"></script>
+        <script src="js/contact_me.js"></script>
+
         <!-- Custom scripts for this template -->
         <script src="js/agency.min.js"></script>
+
+
+        <!-- for web site javascript functions  !-->
+        <script type="text/javascript" src="js/allinone.js"></script>
 
         </body>
 
