@@ -57,7 +57,7 @@ if (isset($_GET['logout'])) {
                                 <a class="nav-link js-scroll-trigger" href="userHome.html">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link js-scroll-trigger" href="#viewHistoryMember">Edit Application</a>
+                                <a class="nav-link js-scroll-trigger" href="editApplication.php">Edit Application</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
