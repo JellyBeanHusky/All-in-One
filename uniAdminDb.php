@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-header('location:registeruni.php');
+header('location:sasAdminHome.php');
 
 $con = mysqli_connect('localhost','root','');
 
