@@ -78,7 +78,7 @@
                     <div class="tab-pane active" id="member" role="tabpanel"><br/></br>
                         <div class="row">
                             <div class="col-lg-12 offset-md-3">
-                                <form   action="applicantregisteration.php" action="users.php" id="contactForm" method="POST" onsubmit="return Validate()" name="vform">
+                                <form    action="registeration.php" id="contactForm" method="POST" onsubmit="return Validate()" name="vform">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
@@ -113,14 +113,14 @@
                                                 <p class="help-block text-danger"></p>
                                             </div>
 											<div class="form-group">
-                                                <input class="form-control" name="mbirth" id="mbirth" type="text" placeholder="Date of Birth *" required data-validation-required-message="Please enter your date of birth.">
+                                                <input class="form-control" name="mbirth" id="mbirth" type="date" placeholder="Date of Birth *" required data-validation-required-message="Please enter your date of birth.">
                                                 <p class="help-block text-danger"></p>
                                             </div>
 											<div class="form-group">
                                                 <label for="level" style="color:black;">AS</label>
                                                 <select class="form-control" name="usertype" id="usertype">
                                                     <option value="applicant">applicant</option>
-
+                                                    
                                                 </select>
                                             </div>
 
@@ -184,23 +184,23 @@
             </div>
         </footer>
 
+       
+       
+	  
 
-
-
-
-
+       
 
         </body>
 
         </html>
-
+		
 		<script type="text/javascript">
 		var memail=document.forms["vform"]["memail"];
-
+		
 		var memail= document.getElementById("idmemail");
-
+		
 		memail.addEventListener("blur", emailVerify, true);
-
+		
 		function Validate(){
 			id(memail.value==""){
 				memail.style.border="1px solid red";
@@ -208,9 +208,9 @@
 				memail.focus();
 				return false;
 			}
-
+			
 		}
-
+		
 		function emailVerify(){
 			if(memail.value !=""){
 				memail.style.border="1px solid #5E6E66";
@@ -218,5 +218,6 @@
 				return true;
 			}
 		}
-
+		
 		</script>
+            
