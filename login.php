@@ -69,7 +69,7 @@
                 <?php endif; ?>
                 <div class="row">
                     <div class="col-lg-12 offset-md-3">
-                        <form id="contactForm" method="POST" action="testlogin.php" name="sentMessage" novalidate>
+                        <form id="contactForm" method="POST" action="authenticate.php" name="sentMessage" novalidate>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -150,37 +150,7 @@
 
 </html>
 
-<?php
 
-/*
 
-$con = mysqli_connect("localhost","root","");
-if(!$con)
-{
-	echo"Unable to establish connection".mysqli_error();
-}
-	$db=mysqli_select_db($con, "allinone");
-if(!$db)
-{
-	echo"Databse not found".mysqli_error();
-}
-
-if(isset($_POST['login'])){
-	$usertype=$POST['usertype'];
-	$username=$POST_['username'];
-	$password=$POST_['password'];
-	
-	$query="select * from users where username='$username' && password='$password' && usertype='$usertype'";
-	$result=mysqli_query($query);
-	
-	while($row=mysqli_fetch_array($result)){
-		if($row['username']==$username && $row['password']==$password && $row['usertype']=='applicant'){
-			header("location: userHome.html" );
-		}elseif($row['username']==$username && $row['password']==$password && $row['usertype']=='uniAdmin'){
-			header("location: uniAdminHome.html");
-		}
-	}
-}*/
-?>
 
 
