@@ -91,6 +91,7 @@ if (isset($_GET['logout'])) {
                                     <th>User</th>
                                     <th>ProgrammeID</th>
                                     <th>Status</th>
+                                    <th>Qualification</th>
                                     <th>Review Application</th>
                                 </tr>
                             </thead>
@@ -108,6 +109,7 @@ if (isset($_GET['logout'])) {
                                             <td><?php echo $row['userid']; ?></td>
                                             <td><?php echo $row['sessionid']; ?></td>
                                             <td><?php echo $row['status']; ?></td>
+                                            <td><?php echo $row['qualifications']; ?></td>
                                             <td>
                                                 <?php if($row['userid']==21): ?>
                                                 <?php endif; ?>
