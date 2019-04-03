@@ -82,7 +82,7 @@ if (isset($_GET['logout'])) {
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <h2 class="section-heading text-uppercase">Add a Programme</h2><br/>
+                        <h2 class="section-heading text-uppercase">Add New Qualification</h2><br/>
                     </div>
                 </div>
                 <?php
