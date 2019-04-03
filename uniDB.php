@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-header('location:registeruni.php');
+header('location:sasAdminHome.php');
 
 $con = mysqli_connect('localhost','root','');
 
@@ -9,11 +9,10 @@ mysqli_select_db($con, 'allinone');
 
 
 
-$uniName = $_POST['uniName'];
-$uniID = $_POST['123'+'uniName'];
+$name = $_POST['universityname'];
+$uniadmin = $_POST['uniadminName'];
 
-
-$s = "select *from users where name='$name'";
+$s = "select *from university";
 
 $result = mysqli_query($con, $s);
 
@@ -23,8 +22,8 @@ if($num == 1){
 	echo" username already taken";
 }else{
 	
-	$reg= "insert into university(University Name, universityID) 
-	values('$uniName', '$uniID')";
+	$reg= "insert into university(UniversityName, uniAdmin) 
+	values('$name', '$uniadmin')";
 	mysqli_query($con, $reg);
 	echo" Registeration Successful";
 }
