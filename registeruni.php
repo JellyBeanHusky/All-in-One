@@ -39,7 +39,8 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="index.php">Home</a>
+                            
+							<a class="nav-link js-scroll-trigger" href="sasAdminHome.php">Home</a>
                         </li>
                         
                     </ul>
@@ -76,36 +77,19 @@
                     <div class="tab-pane active" id="member" role="tabpanel"><br/></br>
                         <div class="row">
                             <div class="col-lg-12 offset-md-3">
-                                <form   action="uniAdminDb.php" id="contactForm" method="POST" novalidate>
+                                <form   action="uniDB.php" id="contactForm" method="POST" novalidate>
                                     <div class="row">
                                         <div class="col-md-6">
-											<div class="form-group">
-                                                <input class="form-control"  name="uniName" id="uniName" type="text" placeholder="University Name *" required data-validation-required-message="Please enter University Name.">
+											
+                                            <div class="form-group">
+                                                <input class="form-control"  name="universityname" id="universityname" type="text" placeholder="universityname *" required data-validation-required-message="Please enter university admin username.">
                                                 <p class="help-block text-danger"></p>
                                             </div>
                                             <div class="form-group">
-                                                <input class="form-control"  name="musername" id="musername" type="text" placeholder="Username *" required data-validation-required-message="Please enter university admin username.">
+                                                <input class="form-control" name="uniadminName" id="uniadminName" type="text" placeholder="University Admin Name *" required data-validation-required-message="Please enter your password.">
                                                 <p class="help-block text-danger"></p>
                                             </div>
-                                            <div class="form-group">
-                                                <input class="form-control" name="mpassword" id="mpassword" type="password" placeholder="Password *" required data-validation-required-message="Please enter your password.">
-                                                <p class="help-block text-danger"></p>
-                                            </div>
-                                            <div class="form-group">
-                                                <input class="form-control" name="mfullname" id="mfullname" type="text" placeholder="Full Name *" required data-validation-required-message="Please enter your full name.">
-                                                <p class="help-block text-danger"></p>
-                                            </div>
-                                            <div class="form-group">
-                                                <input class="form-control" name="memail" id="memail" type="email" placeholder="Email *" required data-validation-required-message="Please enter your email.">
-                                                <p class="help-block text-danger"></p>
-                                            </div>
-											<div class="form-group">
-                                                <label for="level" style="color:black;">AS</label>
-                                                <select class="form-control" name="usertype" id="usertype">
-                                                    <option value="uniAdmin">uni admin</option>
-                                                    
-                                                </select>
-                                            </div>
+                                            
 
                                             <div class="clearfix"></div>
                                             <div class="col-lg-12 text-center">
