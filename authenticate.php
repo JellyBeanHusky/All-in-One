@@ -35,9 +35,7 @@ if(isset($_POST['submit'])){
 		header("Location: uniAdminHome.php");
 	}elseif($row['username']==$username && $row['password']==$password && $row['usertype']=='applicant'){
 		header("Location: userHome.php");
-	}else {
-			header("Location: login.php");		
-                }
+	}
  }
 }
 
