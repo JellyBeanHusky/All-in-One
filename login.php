@@ -69,7 +69,7 @@
                 <?php endif; ?>
                 <div class="row">
                     <div class="col-lg-12 offset-md-3">
-                        <form id="contactForm" method="POST" action="authenticate.php" name="sentMessage" novalidate>
+                        <form id="contactForm" method="POST" action="testlogin.php" name="sentMessage" novalidate>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
