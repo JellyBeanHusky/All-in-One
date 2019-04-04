@@ -8,7 +8,7 @@ if(!$con)
 {
 	echo"Unable to establish connection".mysqli_error();
 }
-	$db=mysqli_select_db($con, "allinone");
+	$db=mysqli_select_db($con, "allinone1");
 if(!$db)
 {
 	echo"Database not found". mysqli_error();
