@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(!isset($_SESSION['username'])){
+	header('location:login.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -49,9 +56,18 @@
 							<li class="nav-item">
                                 <a class="nav-link js-scroll-trigger" href="registeruni.php">Register University</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link js-scroll-trigger" href="#viewHistoryMember">Logout</a>
-                            </li>
+                            <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Profile
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="navbarResponsive">
+                                <a class="dropdown-item js-scroll-trigger" href="#"><?php echo $_SESSION['username'];?></a>
+								 								<a class="dropdown-item js-scroll-trigger" href="#"><?php echo $_SESSION['uniqueID'];?></a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item js-scroll-trigger" href="">Update Info</a>
+                                <a class="dropdown-item js-scroll-trigger" href="index.php?logout">Logout</a>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
