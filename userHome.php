@@ -52,7 +52,9 @@ session_start();
                                     Profile
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="navbarResponsive">
-                                    <a class="dropdown-item js-scroll-trigger" href="#"></a>
+                                    
+                                    <a class="dropdown-item js-scroll-trigger" href="#"><?php echo $_SESSION['username'];?></a>
+    								 								<a class="dropdown-item js-scroll-trigger" href="#"><?php echo $_SESSION['uniqueID'];?></a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item js-scroll-trigger" href="updateInfo.php">Update Info</a>
                                     <a class="dropdown-item js-scroll-trigger" href="index.php?logout">Logout</a>
