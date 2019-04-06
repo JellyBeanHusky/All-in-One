@@ -59,7 +59,7 @@
                         <h2 class="section-heading text-uppercase">Login</h2><br/>
                     </div>
                 </div>
-                
+
                 <!-- if session has a msg  change later to signgel msg!-->
                 <?php if (isset($_SESSION['logoutmsg'])): ?>
                     <div class="alert alert-success alert-dismissable">
@@ -79,23 +79,14 @@
                                     <div class="form-group">
                                         <input class="form-control" name="pwd" type="password" placeholder="Password *" required data-validation-required-message="Please enter your password.">
                                         <p class="help-block text-danger"></p>
-                                        
+
                                     </div>
-									<div class="form-group">
-                                                <label for="level"  style="color:black;">AS</label>
-                                                <select class="form-control" name="usertype" id="usertype">
-                                                    <option value="applicant">applicant</option>
-													<option value="uniAdmin">uniAdmin</option>
-													<option value="Admin">Admin</option>
-                                                    
-                                                </select>
-												<a href="signup.php" style="float:right;color: #b20000;">New user? Click here to sign up.</a><br>
-                                            </div>
+
                                     <div class="clearfix"></div>
                                     <div class="col-lg-12 text-center">
                                         <br/>
                                         <div id="success"></div>
-                                        <button  class="btn btn-primary btn-xl text-uppercase" name="submit" type="submit">Login</button>
+                                           <button class="btn btn-primary btn-xl text-uppercase" type="submit">Login</button>
                                     </div>
                                 </div>
                             </div>
@@ -145,12 +136,7 @@
       </div>
     </footer>
 
-    
+
   </body>
 
 </html>
-
-
-
-
-
