@@ -1,44 +1,43 @@
 <?php
 
-
+session_start();
 
 $con = mysqli_connect('localhost','root','');
 
-if(!$con)
-{
-	echo"Unable to establish connection".mysqli_error();
-}
-	$db=mysqli_select_db($con, "allinone1");
-if(!$db)
-{
-	echo"Database not found". mysqli_error();
-}
 
-echo " post value " . $_POST['submit'];
+mysqli_select_db($con, "allinone1");
 
-if(isset($_POST['submit'])){
-	echo " inside post ";
-	$usertype=$_POST['usertype'];
-	$username=$_POST['user'];
-	$password=$_POST['pwd'];
-	
-	$query="select * from users where username='$username' and password='$password' and usertype='$usertype'";
-	$result=mysqli_query($con,$query);
-	
-	var_dump($result);
-	
-	while($row=mysqli_fetch_array($result, MYSQLI_ASSOC)){
-	if($row['username']==$username && $row['password']==$password && $row['usertype']=='Admin'){
-		
+
+
+
+$username=$_POST['user'];
+$password=$_POST['pwd'];
+
+$query="select * from users where username='$username' && password='$password' ";
+$result=mysqli_query($con,$query);
+$row = mysqli_fetch_assoc($result);
+$num =mysqli_num_rows($result);
+
+if($num == 1){
+	$_SESSION['username'] =$username;
+	$_SESSION['uniqueID'] = $row['userID'];
+	$_SESSION['usertype']=$row['usertype'];
+
+	if($row['usertype']=='Admin'){
+
 		header("Location: sasAdminHome.php");
-	}elseif($row['username']==$username && $row['password']==$password && $row['usertype']=='uniAdmin'){
+	}elseif($row['usertype']=='uniAdmin'){
 		header("Location: uniAdminHome.php");
-	}elseif($row['username']==$username && $row['password']==$password && $row['usertype']=='applicant'){
+	}elseif($row['usertype']=='applicant'){
 		header("Location: userHome.php");
 	}
-	}
+
+
+}else{
+	echo("Either the password or username does not match!");
+
+	header('location:login.php');
+
 }
-else {
-	echo " else  post ";
-}
+
 ?>
