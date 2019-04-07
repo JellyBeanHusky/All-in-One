@@ -13,10 +13,11 @@ $row = mysqli_fetch_assoc($result);
 
 
 
-echo "<h3 class='text-uppercase'>{$row['title']}</h3><br>
+echo "
             <div class='row'>
                 <div class='col-md-12'>
                     <div class='form-group'>
+                    <li>Add Your Qualifications</li>
                         <input class='form-control' id='uqualifications' type='text' placeholder='{$row['qualifications']}' value='{$row['qualifications']}'>
                         <p class='help-block text-danger'></p>
                     </div>
