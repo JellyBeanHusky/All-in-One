@@ -1,3 +1,19 @@
+<?php
+require_once 'inc/dbcall.php';
+$db = new Db();
+//if not set
+if (!isset($_SESSION['username'])) {
+    $db->redirect('');
+}
+//signout
+if (isset($_GET['logout'])) {
+    unset($_SESSION["name"]);
+    unset($_SESSION["usertype"]);
+    $_SESSION["logoutmsg"] = "Succefully signed out";
+    $db->redirect('login.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,24 +45,33 @@
 
         <!-- Navigation
       //-->
-        <nav class="navbar new navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-            <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="index.php"><img src="img/logo2 copy.png" alt="" width="175"></a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fa fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav text-uppercase ml-auto">
-                        <li class="nav-item">
-                            
-							<a class="nav-link js-scroll-trigger" href="sasAdminHome.php">Home</a>
-                        </li>
-                        
-                    </ul>
-                </div>
-            </div>
-        </nav>
+      <nav class="navbar new navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+          <div class="container">
+              <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="img/logo.png" alt="" width="175"></a>
+              <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                  Menu
+                  <i class="fa fa-bars"></i>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarResponsive">
+                  <ul class="navbar-nav text-uppercase ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="addQualification.php">Add Qualification</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="updateQualification.php">Update Qualification</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="registeruniadmin.php">Register Uni Admin</a>
+                    </li>
+
+                      <li class="nav-item dropdown">
+                            <a class="nav-link js-scroll-trigger" href="sasAdminHome.php">Home</a>
+
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </nav>
 
         <!-- Contact -->
         <section id="signup">
@@ -80,7 +105,7 @@
                                 <form   action="uniAdminDb.php" id="contactForm" method="POST" novalidate>
                                     <div class="row">
                                         <div class="col-md-6">
-											
+
                                             <div class="form-group">
                                                 <input class="form-control"  name="musername" id="musername" type="text" placeholder="Username *" required data-validation-required-message="Please enter university admin username.">
                                                 <p class="help-block text-danger"></p>
@@ -101,7 +126,7 @@
                                                 <label for="level" style="color:black;">AS</label>
                                                 <select class="form-control" name="usertype" id="usertype">
                                                     <option value="uniAdmin">uni admin</option>
-                                                    
+
                                                 </select>
                                             </div>
 
@@ -174,9 +199,9 @@
                 $('#tdatable').DataTable();
 
             });
-        
 
-       
+
+
 
         </body>
 
