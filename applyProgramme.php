@@ -2,7 +2,7 @@
 require_once 'inc/dbcall.php';
 $db = new Db();
 //if not set
-if (!isset($_SESSION['name'])) {
+if (!isset($_SESSION['username'])) {
     $db->redirect('');
 }
 //signout
@@ -13,6 +13,8 @@ if (isset($_GET['logout'])) {
     $db->redirect('login.php');
 }
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -54,10 +56,10 @@ if (isset($_GET['logout'])) {
                         <!-- if member show this !-->
 
                             <li class="nav-item">
-                                <a class="nav-link js-scroll-trigger" href="userHome.html">Home</a>
+                                <a class="nav-link js-scroll-trigger" href="userHome.php">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link js-scroll-trigger" href="editApplication.php">Edit Application</a>
+                                <a class="nav-link js-scroll-trigger" href="editApplication.php">Add My Qualifications</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -65,6 +67,8 @@ if (isset($_GET['logout'])) {
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="navbarResponsive">
                                     <a class="dropdown-item js-scroll-trigger" href="#"></a>
+                                    <a class="dropdown-item js-scroll-trigger" href="#"><?php echo $_SESSION['username'];?></a>
+                                    
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item js-scroll-trigger" href="updateInfo.php">Update Info</a>
                                     <a class="dropdown-item js-scroll-trigger" href="index.php?logout">Logout</a>
@@ -113,9 +117,9 @@ if (isset($_GET['logout'])) {
                                 </a>
                                 <div class="portfolio-caption">
                                     <h4><?php echo strtoupper($row['title']); ?></h4>
-                                    <p class="text-muted"><?php echo strtoupper($row['sessionfor']); ?>
+                                    <p class="text-muted"><?php echo strtoupper($row['uniname']); ?>
                                         <!-- should not show if personal !-->
-                                        <?php if ($row['sessionfor'] == 'group'): ?>
+                                        <?php if ($row['uniname'] == 'group'): ?>
                                             (<?php echo $rowctype['name']; ?>)
                                         <?php endif; ?>
                                     </p>
