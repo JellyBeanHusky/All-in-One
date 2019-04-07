@@ -10,9 +10,9 @@ $result2 = $db->query($sql2);
 //$time = date('h:m A', strtotime($row['time']));
 
 //trainer name
-//$sql4 = "SELECT * FROM `users` WHERE `idusers` =" . $row['createdby'] . " LIMIT 1";
-//$result4 = $db->query($sql4);
-//$row4 = mysqli_fetch_assoc($result4); //fname
+$sql4 = "SELECT * FROM `users` WHERE `userID` =" . $row['createdby'] . " LIMIT 1";
+$result4 = $db->query($sql4);
+$row4 = mysqli_fetch_assoc($result4); //fname
 
 
 
@@ -22,6 +22,8 @@ $uppecase = strtoupper($row['sessionfor']);
 echo "<h3 class='text-uppercase'>{$row['title']}</h3>
      <p class='item-intro text-muted'>{$uppecase} ({$rowctype['name']})</p>
      <ul class='list-inline'>
+     <li>University: {$row['uniname']}</li>
+     
      <li>Intake Date: {$row['tdate']}</li>
      <li>Fee: RM {$row['fee']}</li>
      <li>Entry Requirements: {$row['entryReq']}</li>
