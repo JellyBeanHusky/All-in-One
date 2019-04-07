@@ -1,13 +1,16 @@
 <?php
+
 require_once 'inc/dbcall.php';
 $db = new Db();
-//if not set
-if (!isset($_SESSION['name'])) {
-    $db->redirect('');
+
+
+if(!isset($_SESSION['username'])){
+	header('location:login.php');
 }
+
 //signout
 if (isset($_GET['logout'])) {
-    unset($_SESSION["name"]);
+    unset($_SESSION["username"]);
     unset($_SESSION["usertype"]);
     $_SESSION["logoutmsg"] = "Succefully signed out";
     $db->redirect('login.php');
@@ -51,11 +54,11 @@ if (isset($_GET['logout'])) {
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="uniAdminHome.html">Home</a>
+                            <a class="nav-link js-scroll-trigger" href="uniAdminHome.php">Home</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#viewHistoryMember">Review Application</a>
+                            <a class="nav-link js-scroll-trigger" href="acceptProgramme.php">View Application</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -63,9 +66,11 @@ if (isset($_GET['logout'])) {
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="navbarResponsive">
                                 <a class="dropdown-item js-scroll-trigger" href="#"></a>
+                                <a class="dropdown-item js-scroll-trigger" href="#"><?php echo $_SESSION['username'];?></a>
+                                <a class="dropdown-item js-scroll-trigger" href="#"><?php echo $_SESSION['uniqueID'];?></a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item js-scroll-trigger" href="">Update Info</a>
-                                <a class="dropdown-item js-scroll-trigger" href="welcomePage.html">Logout</a>
+                                <a class="dropdown-item js-scroll-trigger" href="index.php">Logout</a>
                             </div>
                         </li>
                     </ul>
@@ -92,19 +97,19 @@ if (isset($_GET['logout'])) {
                     } else {
                         if ($_POST['ctype'] == 2) {
                             // group
-                            $sql = "INSERT INTO `tsessions` (`title`, `tdate`, `fee`,`entryReq`, `ctype`, `status`, `sessionfor`,`createdby`)
-                                            VALUES ('{$_POST['title']}', '{$_POST['date']}', '{$_POST['fee']}', '{$_POST['entryReq']}','{$_POST['classType']}',1,'degree',777)";
+                            $sql = "INSERT INTO `tsessions` (`title`, `tdate`, `fee`,`entryReq`, `ctype`, `status`, `sessionfor`,`createdby`,`uniname`)
+                                            VALUES ('{$_POST['title']}', '{$_POST['date']}', '{$_POST['fee']}', '{$_POST['entryReq']}','{$_POST['classType']}',1,'degree',{$_SESSION['uniqueID']}, '{$_SESSION['username']}')";
                         }
                        else if ($_POST['ctype'] == 3) {
                             // group
-                            $sql = "INSERT INTO `tsessions` (`title`, `tdate`, `fee`,`entryReq`, `ctype`, `status`, `sessionfor`,`createdby`)
-                                            VALUES ('{$_POST['title']}', '{$_POST['date']}', '{$_POST['fee']}', '{$_POST['entryReq']}', '{$_POST['classType']}',1,'preUni',{$_SESSION['uniqueID']})";
+                            $sql = "INSERT INTO `tsessions` (`title`, `tdate`, `fee`,`entryReq`, `ctype`, `status`, `sessionfor`,`createdby`,`uniname`)
+                                            VALUES ('{$_POST['title']}', '{$_POST['date']}', '{$_POST['fee']}', '{$_POST['entryReq']}', '{$_POST['classType']}',1,'preUni',{$_SESSION['uniqueID']}, '{$_SESSION['username']}')";
                         }
 
                         else {
                             //personal //5 == null
-                            $sql = "INSERT INTO `tsessions` (`title`, `tdate`, `fee`,`entryReq`, `ctype`, `status`, `sessionfor`,`createdby`)
-                                            VALUES ('{$_POST['title']}', '{$_POST['date']}', '{$_POST['fee']}', '{$_POST['entryReq']}', '{$_POST['classType']}',1,'diploma',{$_SESSION['uniqueID']})";
+                            $sql = "INSERT INTO `tsessions` (`title`, `tdate`, `fee`,`entryReq`, `ctype`, `status`, `sessionfor`,`createdby`, `uniname`)
+                                            VALUES ('{$_POST['title']}', '{$_POST['date']}', '{$_POST['fee']}', '{$_POST['entryReq']}', '{$_POST['classType']}',1,'diploma',{$_SESSION['uniqueID']}, '{$_SESSION['username']}')";
                         }
                         if (($db->query($sql))) {
                             echo '<div class="alert alert-success">
@@ -156,7 +161,7 @@ if (isset($_GET['logout'])) {
                                                     $sql = "SELECT * FROM `ctype` where idctype !=5";
                                                     $result = $db->query($sql);
                                                     ?>
-                                                    <label for="classType" style="color:white;">Class Type</label>
+                                                    <label for="classType" style="color:white;">Select Type</label>
                                                     <select class="form-control" name="classType" id="classType" >
                                                         <?php while ($row = mysqli_fetch_assoc($result)) : ?>
                                                             <option  value="<?php echo $row['idctype']; ?>"><?php echo $row['name']; ?></option>
