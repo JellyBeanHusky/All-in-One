@@ -2,7 +2,7 @@
 require_once 'inc/dbcall.php';
 $db = new Db();
 //if not set
-if (!isset($_SESSION['name'])) {
+if (!isset($_SESSION['username'])) {
     $db->redirect('');
 }
 //signout
@@ -51,7 +51,7 @@ if (isset($_GET['logout'])) {
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="">Home</a>
+                            <a class="nav-link js-scroll-trigger" href="userHome.php">Home</a>
                         </li>
 
                         <li class="nav-item">
@@ -63,9 +63,11 @@ if (isset($_GET['logout'])) {
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="navbarResponsive">
                                 <a class="dropdown-item js-scroll-trigger" href="#"></a>
+                                <a class="dropdown-item js-scroll-trigger" href="#"><?php echo $_SESSION['username'];?></a>
+                                
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item js-scroll-trigger" href="">Update Info</a>
-                                <a class="dropdown-item js-scroll-trigger" href="welcomePage.html">Logout</a>
+                                <a class="dropdown-item js-scroll-trigger" href="index.php">Logout</a>
                             </div>
                         </li>
                     </ul>
@@ -96,7 +98,7 @@ if (isset($_GET['logout'])) {
 
                             <tbody>
                                 <?php
-                                $sql = "SELECT * FROM `registered` WHERE `userid`=" . 21;
+                                $sql = "SELECT * FROM `registered` WHERE `userid`=" . $_SESSION['uniqueID'];
                                 $result = $db->query($sql);
                                 $numRows = $db->numRows($result);
                                 ?>
@@ -107,7 +109,7 @@ if (isset($_GET['logout'])) {
                                             <td><?php echo $row['userid']; ?></td>
                                             <td><?php echo $row['qualifications']; ?></td>
                                             <td>
-                                                <?php if($row['userid']==21): ?>
+                                                <?php if($row['userid']==$_SESSION['uniqueID']): ?>
                                                 <?php endif; ?>
                                                 <a class="portfolio-link" data-toggle="modal" style="color: #b20000;"onclick="loadModelRegisterProgramme(<?php echo $row['id']; ?>);" href="#portfolioModal1">Add</a>
                                             </td>
