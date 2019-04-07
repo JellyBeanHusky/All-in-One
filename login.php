@@ -9,7 +9,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>HELPFIT - Training System</title>
+        <title>ALL in ONE system</title>
 
         <!-- Bootstrap core CSS -->
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -101,7 +101,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-4">
-            <span class="copyright">Copyright &copy; HELPFIT 2017</span>
+            <span class="copyright">Copyright &copy; ALL in ONE 2019</span>
           </div>
           <div class="col-md-4">
             <ul class="list-inline social-buttons">
