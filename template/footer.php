@@ -47,23 +47,23 @@
         $('#tdatable').DataTable();
 
     });
-</script>
-<!-- Bootstrap core JavaScript -->
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  </script>
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-<!-- Plugin JavaScript -->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-<!-- Contact form JavaScript -->
-<script src="js/jqBootstrapValidation.js"></script>
-<script src="js/contact_me.js"></script>
+  <!-- Contact form JavaScript -->
+  <script src="js/jqBootstrapValidation.js"></script>
+  <script src="js/contact_me.js"></script>
 
-<!-- Custom scripts for this template -->
-<script src="js/agency.min.js"></script>
+  <!-- Custom scripts for this template -->
+  <script src="js/agency.min.js"></script>
 
 
-<!-- for web site javascript functions  !-->
-<script type="text/javascript" src="js/helpfit.js"></script>
+  <!-- for web site javascript functions  !-->
+  <script type="text/javascript" src="js/allinone.js"></script>
 
 </body>
 
