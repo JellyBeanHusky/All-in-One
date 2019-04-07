@@ -1,13 +1,17 @@
 <?php
+
 require_once 'inc/dbcall.php';
 $db = new Db();
-//if not set
-if (!isset($_SESSION['name'])) {
-    $db->redirect('');
+
+$username = $_SESSION['username'];
+
+if(!isset($_SESSION['username'])){
+	header('location:login.php');
 }
+
 //signout
 if (isset($_GET['logout'])) {
-    unset($_SESSION["name"]);
+    unset($_SESSION["username"]);
     unset($_SESSION["usertype"]);
     $_SESSION["logoutmsg"] = "Succefully signed out";
     $db->redirect('login.php');
@@ -51,11 +55,10 @@ if (isset($_GET['logout'])) {
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="uniAdminHome.html">Home</a>
+                            <a class="nav-link js-scroll-trigger" href="uniAdminHome.php">Home</a>
                         </li>
-
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#viewHistoryMember">Review Application</a>
+                            <a class="nav-link js-scroll-trigger" href="addProgramme.php">Add Programme</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -63,9 +66,11 @@ if (isset($_GET['logout'])) {
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="navbarResponsive">
                                 <a class="dropdown-item js-scroll-trigger" href="#"></a>
+                                <a class="dropdown-item js-scroll-trigger" href="#"><?php echo $_SESSION['username'];?></a>
+
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item js-scroll-trigger" href="">Update Info</a>
-                                <a class="dropdown-item js-scroll-trigger" href="welcomePage.html">Logout</a>
+                                <a class="dropdown-item js-scroll-trigger" href="index.php">Logout</a>
                             </div>
                         </li>
                     </ul>
@@ -90,15 +95,22 @@ if (isset($_GET['logout'])) {
                                     <th>ApplicationID</th>
                                     <th>User</th>
                                     <th>ProgrammeID</th>
-                                    <th>Status</th>
-                                    <th>Qualification</th>
+                                    <th>Applicant</th>
+                                    <th>Programme</th>
+																		<th>Level</th>
+																		<th>Qualification</th>
+																		<th>Status</th>
                                     <th>Review Application</th>
                                 </tr>
                             </thead>
 
                             <tbody>
                                 <?php
-                                $sql = "SELECT * FROM `registered`";
+                                //$sql = "SELECT * FROM `registered` " ;
+																$sql = "SELECT *
+																				FROM registered
+																				INNER JOIN tsessions ON registered.sessionid=tsessions.idtable1
+																				WHERE tsessions.uniname = '$username'  " ;
                                 $result = $db->query($sql);
                                 $numRows = $db->numRows($result);
                                 ?>
@@ -108,11 +120,12 @@ if (isset($_GET['logout'])) {
                                             <td><?php echo $row['id']; ?></td>
                                             <td><?php echo $row['userid']; ?></td>
                                             <td><?php echo $row['sessionid']; ?></td>
-                                            <td><?php echo $row['status']; ?></td>
+                                            <td><?php echo $row['name']; ?></td>
+																						<td><?php echo $row['title']; ?></td>
+																						<td><?php echo $row['sessionfor']; ?></td>
                                             <td><?php echo $row['qualifications']; ?></td>
+																						<td><?php echo $row['astatus']; ?></td>
                                             <td>
-                                                <?php if($row['userid']==21): ?>
-                                                <?php endif; ?>
                                                 <a class="portfolio-link" data-toggle="modal" style="color: #b20000;"onclick="loadModelReviewApplication(<?php echo $row['id']; ?>);" href="#portfolioModal1">Review</a>
                                             </td>
                                         </tr>
