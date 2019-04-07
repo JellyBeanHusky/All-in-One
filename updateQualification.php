@@ -2,7 +2,7 @@
 require_once 'inc/dbcall.php';
 $db = new Db();
 //if not set
-if (!isset($_SESSION['name'])) {
+if (!isset($_SESSION['username'])) {
     $db->redirect('');
 }
 //signout
@@ -50,22 +50,27 @@ if (isset($_GET['logout'])) {
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="uniAdminHome.html">Home</a>
-                        </li>
+                      <li class="nav-item">
+                          <a class="nav-link js-scroll-trigger" href="addQualification.php">Add Qualification</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link js-scroll-trigger" href="updateQualification.php">Update Qualification</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link js-scroll-trigger" href="registeruniadmin.php">Register Uni Admin</a>
+                      </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#viewHistoryMember">Review Application</a>
-                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Profile
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="navbarResponsive">
                                 <a class="dropdown-item js-scroll-trigger" href="#"></a>
+                                <a class="dropdown-item js-scroll-trigger" href="sasAdminHome.php"><?php echo $_SESSION['username'];?></a>
+                                <a class="dropdown-item js-scroll-trigger" href="#"><?php echo $_SESSION['uniqueID'];?></a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item js-scroll-trigger" href="">Update Info</a>
-                                <a class="dropdown-item js-scroll-trigger" href="welcomePage.html">Logout</a>
+                                <a class="dropdown-item js-scroll-trigger" href="index.php">Logout</a>
                             </div>
                         </li>
                     </ul>
@@ -95,19 +100,10 @@ if (isset($_GET['logout'])) {
                                     <th>Update Session</th>
                                 </tr>
                             </thead>
-                            <tfoot>
-                                <tr>
-                                  <th>QualificationID</th>
-                                  <th>Qualification Name</th>
-                                  <th>Maximum</th>
-                                  <th>Minimum</th>
-                                  <th>Qualifications</th>
-                                  <th>Update Session</th>
-                                </tr>
-                            </tfoot>
+
                             <tbody>
                                 <?php
-                                $sql = "SELECT * FROM `qualification1` WHERE `createdby`=" . 21;
+                                $sql = "SELECT * FROM `qualification1` WHERE `createdby`=" . $_SESSION['uniqueID'];
                                 $result = $db->query($sql);
                                 $numRows = $db->numRows($result);
                                 ?>
@@ -120,7 +116,7 @@ if (isset($_GET['logout'])) {
                                             <td><?php echo $row['min']; ?></td>
                                             <td><?php echo $row['qualification']; ?></td>
                                             <td>
-                                                <?php if($row['createdby']==21): ?>
+                                                <?php if($row['createdby']==$_SESSION['uniqueID']): ?>
                                                 <?php endif; ?>
                                                 <a class="portfolio-link" data-toggle="modal" style="color: #b20000;"onclick="loadModelUpdateTrainer(<?php echo $row['qualificationID']; ?>);" href="#portfolioModal1">Update</a>
                                             </td>
