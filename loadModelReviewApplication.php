@@ -14,11 +14,11 @@ $row = mysqli_fetch_assoc($result);
 $one = null;
 $two = null;
 $three = null;
-if ($row['status'] == "PENDING") {
+if ($row['astatus'] == "PENDING") {
     $one = 'selected';
-} elseif ($row['status'] == "ACCEPTED") {
+} elseif ($row['astatus'] == "ACCEPTED") {
     $two = 'selected';
-} elseif ($row['status'] == "REJECTED") {
+} elseif ($row['astatus'] == "REJECTED") {
     $three = 'selected';
 }
 
