@@ -6,10 +6,7 @@ $sessionID = $_POST['sessionid'];
 $sql = "SELECT * FROM `registered` WHERE `id` =" . $sessionID . " LIMIT 1";
 $result = $db->query($sql);
 $row = mysqli_fetch_assoc($result);
-//$time =date('h:m A', strtotime($row['time']));
-////get the session type mma,sport,dance
-//$rowctype = mysqli_fetch_assoc($result2);
-// set teh select box to default selected value
+
 
 
 
