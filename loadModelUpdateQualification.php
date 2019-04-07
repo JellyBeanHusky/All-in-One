@@ -20,14 +20,17 @@ $three = null;
 echo "<h3 class='text-uppercase'>{$row['title']}</h3><br>
             <div class='row'>
                 <div class='col-md-12'>
+                  <li>Maximum</li>
                     <div class='form-group'>
                         <input class='form-control' id='umax' type='text' placeholder='{$row['max']}' value='{$row['max']}'>
                         <p class='help-block text-danger'></p>
                     </div>
+                    <li>Minimum</li>
                     <div class='form-group'>
                         <input class='form-control' id='umin' type='text' placeholder='{$row['min']}' value='{$row['min']}' >
                         <p class='help-block text-danger'></p>
                     </div>
+                    <li>Qualification</li>
                     <div class='form-group'>
                         <input class='form-control' id='uqualification' type='text' placeholder='{$row['qualification']}' value='{$row['qualification']}' >
                         <p class='help-block text-danger'></p>
