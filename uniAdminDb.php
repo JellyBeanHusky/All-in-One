@@ -5,7 +5,7 @@ header('location:sasAdminHome.php');
 
 $con = mysqli_connect('localhost','root','');
 
-mysqli_select_db($con, 'allinone');
+mysqli_select_db($con, 'allinone1');
 
 
 
@@ -24,8 +24,8 @@ $num =mysqli_num_rows($result);
 if($num == 1){
 	echo" username already taken";
 }else{
-	
-	$reg= "insert into users(username, password, fullname, email, type, idno, mobileNo, birth, usertype) 
+
+	$reg= "insert into users(username, password, fullname, email, type, idno, mobileNo, birth, usertype)
 	values('$name', '$pass', '$fname', '$mail', '$type', '$idno', '$mobile', '$dbirth', '$usertype' )";
 	mysqli_query($con, $reg);
 	echo" Registeration Successful";
