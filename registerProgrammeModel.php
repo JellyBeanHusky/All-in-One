@@ -7,23 +7,21 @@ $result = $db->query($sql);
 $row = mysqli_fetch_assoc($result);
 $sql2 = "SELECT * FROM `ctype` WHERE `idctype`=" . $row['ctype'] . " LIMIT 1";
 $result2 = $db->query($sql2);
-//$time = date('h:m A', strtotime($row['time']));
 
-//trainer name
+
+//user name
 $sql4 = "SELECT * FROM `users` WHERE `userID` =" . $row['createdby'] . " LIMIT 1";
 $result4 = $db->query($sql4);
-$row4 = mysqli_fetch_assoc($result4); //fname
+$row4 = mysqli_fetch_assoc($result4);
 
 
-
-//get the session type mma,sport,dance
 $rowctype = mysqli_fetch_assoc($result2);
 $uppecase = strtoupper($row['sessionfor']);
 echo "<h3 class='text-uppercase'>{$row['title']}</h3>
      <p class='item-intro text-muted'>{$uppecase} ({$rowctype['name']})</p>
      <ul class='list-inline'>
-     <li>University: {$row['uniname']}</li>
-     
+     <li>Institute: {$row['uniname']}</li>
+
      <li>Intake Date: {$row['tdate']}</li>
      <li>Fee: RM {$row['fee']}</li>
      <li>Entry Requirements: {$row['entryReq']}</li>
