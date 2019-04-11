@@ -61,6 +61,9 @@ if (isset($_GET['logout'])) {
                             <li class="nav-item">
                                 <a class="nav-link js-scroll-trigger" href="editApplication.php">Add My Qualifications</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link js-scroll-trigger" href="viewApplicationStatus.php">View Status</a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Profile
@@ -68,7 +71,7 @@ if (isset($_GET['logout'])) {
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="navbarResponsive">
                                     <a class="dropdown-item js-scroll-trigger" href="#"></a>
                                     <a class="dropdown-item js-scroll-trigger" href="#"><?php echo $_SESSION['username'];?></a>
-                                    
+
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item js-scroll-trigger" href="updateInfo.php">Update Info</a>
                                     <a class="dropdown-item js-scroll-trigger" href="index.php?logout">Logout</a>
@@ -130,7 +133,7 @@ if (isset($_GET['logout'])) {
 
                     <?php else: ?>
                         <p></p>
-                        <h4 class="section-heading text-uppercase">no Programme available</h4><br>
+                        <h4 class="section-heading text-uppercase">No Programme Available</h4><br>
                     <?php endif; ?>
                 </div>
             </div>
