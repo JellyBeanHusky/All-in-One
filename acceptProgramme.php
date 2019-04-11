@@ -93,9 +93,9 @@ if (isset($_GET['logout'])) {
                             <thead>
                                 <tr>
                                     <th>ApplicationID</th>
-                                    <th>User</th>
+
                                     <th>ProgrammeID</th>
-                                    <th>Applicant</th>
+                                    <th>Applicant Name</th>
                                     <th>Programme</th>
 																		<th>Level</th>
 																		<th>Qualification</th>
@@ -118,7 +118,7 @@ if (isset($_GET['logout'])) {
                                     <?php while ($row = mysqli_fetch_assoc($result)) : ?>
                                         <tr>
                                             <td><?php echo $row['id']; ?></td>
-                                            <td><?php echo $row['userid']; ?></td>
+
                                             <td><?php echo $row['sessionid']; ?></td>
                                             <td><?php echo $row['name']; ?></td>
 																						<td><?php echo $row['title']; ?></td>
