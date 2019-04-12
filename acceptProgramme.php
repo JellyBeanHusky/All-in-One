@@ -84,7 +84,7 @@ if (isset($_GET['logout'])) {
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center"><br>
-                        <h2 class="section-heading text-uppercase">Qualification History</h2><br>
+                        <h2 class="section-heading text-uppercase">Application History</h2><br>
                     </div>
                 </div>
                 <div class="row">
